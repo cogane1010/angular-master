@@ -2,8 +2,28 @@
 
 <div class="p-4">
     <div class="container">
-        <h1>Hi {{user}}!</h1>
+        <h1>Hi </h1>
         <p>You're logged in with Angular 9!!</p>
         <p><a routerLink="/users">Manage Users</a></p>
     </div>
 </div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 30%">First Name</th>
+            <th style="width: 30%">Last Name</th>           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of artist">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+        </tr>
+        <tr *ngIf="!artist">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>

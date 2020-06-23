@@ -1,46 +1,27 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# compiled output
-/dist
-/tmp
-/out-tsc
-# Only exists if Bazel was run
-/bazel-out
-
-# dependencies
-/node_modules
-
-# profiling files
-chrome-profiler-events*.json
-speed-measure-plugin*.json
-
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
-
-# System Files
-.DS_Store
-Thumbs.db
+node_modules
+dist/account-account-module-es5.js
+dist/account-account-module-es5.js.map
+dist/account-account-module-es2015.js
+dist/account-account-module-es2015.js.map
+dist/favicon.ico
+dist/index.html
+dist/main-es5.js
+dist/main-es5.js.map
+dist/main-es2015.js
+dist/main-es2015.js.map
+dist/polyfills-es5.js
+dist/polyfills-es5.js.map
+dist/polyfills-es2015.js
+dist/polyfills-es2015.js.map
+dist/runtime-es5.js
+dist/runtime-es5.js.map
+dist/runtime-es2015.js
+dist/runtime-es2015.js.map
+dist/styles-es5.js
+dist/styles-es5.js.map
+dist/styles-es2015.js
+dist/styles-es2015.js.map
+dist/vendor-es5.js
+dist/vendor-es5.js.map
+dist/vendor-es2015.js
+dist/vendor-es2015.js.map

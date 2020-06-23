@@ -8,10 +8,6 @@ export class AppComponent {
     user: string;
 
     constructor(private accountService: AccountService) {
-        var isau = this.accountService.isAuthenticated()
         this.user = this.accountService.name;
-        console.log('aaaaaa' + this.user)
-    }
-
-   
+    }   
 }
