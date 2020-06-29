@@ -1,11 +1,9 @@
 ﻿import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
 import { UserManager, UserManagerSettings, User } from 'oidc-client';
 import { BehaviorSubject, Observable } from 'rxjs'; 
 import { AppUser, Artist } from '@app/_models'
-import { BaseService, ConfigService } from "@app/_helpers";
-import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +18,7 @@ export class AccountService  {
   private manager = new UserManager(getClientSettings());
   private user: User | null;
 
-  constructor(private http: HttpClient, private configService: ConfigService) { 
+  constructor(private http: HttpClient) { 
     
     this.manager.getUser().then(user => { 
       this.user = user;      
@@ -38,7 +36,7 @@ export class AccountService  {
   }  
 
   register(userRegistration: any) {    
-    return this.http.post(this.configService.authApiURI + '/account', userRegistration);
+    return this.http.post(environment.authApiURI + '/account', userRegistration);
   }
 
   list(token: string) : Observable<AppUser[]>{
@@ -49,7 +47,7 @@ export class AccountService  {
       })
     };
 
-    return this.http.get<AppUser[]>(this.configService.authApiURI + '/account/list', httpOptions);
+    return this.http.get<AppUser[]>(environment.authApiURI + '/account/list', httpOptions);
     
   }
 
@@ -61,7 +59,7 @@ export class AccountService  {
       })
     };
 
-    return this.http.get<Artist[]>(this.configService.resourceApiURI + '/artists', httpOptions);
+    return this.http.get<Artist[]>(environment.resourceApiURI + '/artists', httpOptions);
     
   }
 
@@ -88,15 +86,15 @@ export class AccountService  {
 
 export function getClientSettings(): UserManagerSettings {
   return {
-      authority: 'http://localhost:5000',
+      authority: environment.authority,
       client_id: 'angular_spa',
-      redirect_uri: 'http://localhost:4200/auth-callback',
-      post_logout_redirect_uri: 'http://localhost:4200/',
+      redirect_uri: environment.client + 'auth-callback',
+      post_logout_redirect_uri: environment.client,
       response_type:"id_token token",
       scope:"openid profile email api.read",
       filterProtocolClaims: true,
       loadUserInfo: true,
       automaticSilentRenew: true,
-      silent_redirect_uri: 'http://localhost:4200/silent-refresh.html'
+      silent_redirect_uri: environment.client + 'silent-refresh.html'
   };
 }

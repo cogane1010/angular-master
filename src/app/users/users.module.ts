@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '@app/shares/header/header.component';
+import { HeaderComponent } from '@app/shared/header/header.component';
 
 import { UsersRoutingModule } from './users-routing.module';
-import { LayoutComponent } from '../shares/layout/layout.component';
+import { LayoutComponent } from '../shared/layout/layout.component';
 import { ListComponent } from './list.component';
 import { AddEditComponent } from './add-edit.component';
 
@@ -12,7 +12,8 @@ import { AddEditComponent } from './add-edit.component';
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        UsersRoutingModule
+        UsersRoutingModule,
+        FormsModule
     ],
     declarations: [
         LayoutComponent,

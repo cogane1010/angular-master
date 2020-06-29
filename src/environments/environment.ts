@@ -4,7 +4,10 @@
 
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:4000'
+    authApiURI: 'http://localhost:5000/api',
+    resourceApiURI: 'http://localhost:5050/api',
+    authority: 'http://localhost:5000',
+    client: 'http://localhost:4200/'
 };
 
 /*
